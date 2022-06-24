@@ -8,11 +8,11 @@ import BaseLayout from 'src/layouts/BaseLayout';
 import SuspenseLoader from 'src/components/SuspenseLoader';
 
 const Loader = (Component) => (props) =>
-(
-  <Suspense fallback={<SuspenseLoader />}>
-    <Component {...props} />
-  </Suspense>
-);
+  (
+    <Suspense fallback={<SuspenseLoader />}>
+      <Component {...props} />
+    </Suspense>
+  );
 
 // Pages
 
@@ -21,8 +21,6 @@ const Overview = Loader(lazy(() => import('src/content/overview')));
 // Dashboards
 
 const Crypto = Loader(lazy(() => import('src/content/dashboards/Crypto')));
-
-const Covid = Loader(lazy(() => import('src/content/dashboards/Covid')));
 
 // Applications
 
@@ -133,10 +131,6 @@ const routes: RouteObject[] = [
       {
         path: 'crypto',
         element: <Crypto />
-      },
-      {
-        path: 'covid',
-        element: <Covid />
       },
       {
         path: 'messenger',
