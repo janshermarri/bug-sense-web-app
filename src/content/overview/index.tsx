@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import { styled } from '@mui/material/styles';
 import Logo from 'src/components/LogoSign';
 import Hero from './Hero';
+import { getProjects } from 'src/api/api';
+import { useEffect } from 'react';
 
 const OverviewWrapper = styled(Box)(
   () => `
@@ -15,10 +17,15 @@ const OverviewWrapper = styled(Box)(
 );
 
 function Overview() {
+  useEffect(() => {
+    const projects = getProjects();
+    console.log("projects", projects);
+  })
+
   return (
     <OverviewWrapper>
       <Helmet>
-        <title>Tokyo Free White React Typescript Admin Dashboard</title>
+        <title>BugSense</title>
       </Helmet>
       <Container maxWidth="lg">
         <Box display="flex" justifyContent="center" py={5} alignItems="center">
